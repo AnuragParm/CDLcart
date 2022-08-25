@@ -47,11 +47,21 @@ body {
 
 .cartWrapper .cartHeader p {
   text-align: right;
+  position: relative;
 }
 
 .cartWrapper .cartHeader p span {
+  background-color: #198754;
   padding: 2px 5px;
+  border-radius: 50%;
+  font-size: 10px;
   margin-left: 5px;
+  color: #fff;
+  position: absolute;
+  right: -4px;
+  z-index: 999;
+  top: -10px;
+  border: 1px solid #fff;
 }
 
 .cartWrapper .cartHeader p i {
@@ -115,8 +125,7 @@ body {
           justify-content: space-between;
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #beaeae;
-  border-radius: 10px;
+  border-bottom: 1px solid #beaeae;
 }
 
 .cartWrapper .cartItems .cartItemRow .cartItemCard {
@@ -149,6 +158,21 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.cartWrapper .cartItems .cartItemRow .deleteIcon {
+  color: #c21919;
+  font-size: 18px;
+  margin-right: 10px;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+.cartWrapper .cartItems .cartItemRow .deleteIcon:hover {
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 .cartWrapper .cartItems .cartItemRow img {

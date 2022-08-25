@@ -1,8 +1,18 @@
-//Variable defined
+//renderProducts() - line 23
+//addToCart() - line 46
+//changeNumberOfUnits() - line 59
+//removeFromCart() - line 75
+//updateCart() - line 94
+//renderCartItems() - line 101
+//renderSubtotal() - line 216
 
+//Variable defined
 const productElement = document.querySelector(".productRender");
 const cartElement = document.querySelector(".cartItems");
 const subTotalElement = document.querySelector(".subTotal");
+//Cart Array to render cart
+let cart = [];
+//Cart Sub0total for each item
 let totalCartValueItemA = 0;
 let totalCartValueItemB = 0;
 let totalCartValueItemC = 0;
@@ -31,8 +41,6 @@ function renderProducts() {
 }
 renderProducts();
 
-//Cart Array to render cart
-let cart = [];
 //Add To Cart
 function addToCart(id) {
   //Check if product already exist in cart
@@ -65,11 +73,25 @@ function changeNumberOfUnits(action, id) {
 //Delete Item from cart
 function removeFromCart(id) {
   cart = cart.filter((item) => item.id != id);
+  //console.log(typeof id);
+  if (id === 0) {
+    totalCartValueItemA = 0;
+    renderSubtotal();
+  } else if (id === 1) {
+    totalCartValueItemB = 0;
+    renderSubtotal();
+  } else if (id === 2) {
+    totalCartValueItemC = 0;
+    renderSubtotal();
+  } else if (id === 3) {
+    totalCartValueItemD = 0;
+    renderSubtotal();
+  }
   updateCart();
 }
 
 //Update Cart
-function updateCart(params) {
+function updateCart() {
   renderCartItems();
   renderSubtotal();
 }
@@ -84,97 +106,107 @@ function renderCartItems() {
       totalCartValueItemA = ~~(x / 3) * 1.3 + (x % 3) * 0.5;
 
       cartElement.innerHTML += `
-            <div class="cartItemRow">
-              <div class="cartItemCard">
-                <div class="cartItemDescription">
-                  <div onClick="removeFromCart(${item.id})"> 
-                    <img src="/img/${item.img}"/>
-                    <h6>${item.name}</h>
-                  </div>
+    <div class="cartItemRow">
+            <div class="cartItemCard"> 
+            
+
+                <div class="cartItemDescription"> 
+                    <img src="/img/${item.img}" />
+                    <h6>Item: ${item.name}</h6>
                 </div>
-              </div>
-              <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
-                item.id
-              })"><i class="fa-solid fa-minus"></i></button>
-              ${item.numberOfUnits} 
-              <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
-                item.id
-              })"><i class="fa-solid fa-plus"></i></button>
-              </span>
-              <span>Sub-Total: £ ${totalCartValueItemA.toFixed(2)}</span>
-            </div>        `;
+            </div>
+            <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
+              item.id
+            })"><i class="fa-solid fa-minus"></i></button>
+             ${item.numberOfUnits} 
+            <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
+              item.id
+            })"><i class="fa-solid fa-plus"></i></button>
+            </span>
+            <span>Sub-Total: £ ${totalCartValueItemA.toFixed(2)}</span>
+            <span><i class="fa-solid fa-trash-can deleteIcon" onClick="removeFromCart(${
+              item.id
+            })"></i></span>
+    </div>
+        `;
     } else if (item.id === 1) {
       const x = item.numberOfUnits;
       totalCartValueItemB = ~~(x / 2) * 0.45 + (x % 2) * 0.3;
 
       cartElement.innerHTML += `
-            <div class="cartItemRow">
-              <div class="cartItemCard">
-                <div class="cartItemDescription">
-                  <div onClick="removeFromCart(${item.id})"> 
-                    <img src="/img/${item.img}"/>
-                    <h6>${item.name}</h>
-                  </div>
+    <div class="cartItemRow">
+            <div class="cartItemCard"> 
+                <div class="cartItemDescription"> 
+                    <img src="/img/${item.img}" />
+                    <h6>Item: ${item.name}</h6>
                 </div>
-              </div>
-              <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
-                item.id
-              })"><i class="fa-solid fa-minus"></i></button>
-              ${item.numberOfUnits} 
-              <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
-                item.id
-              })"><i class="fa-solid fa-plus"></i></button>
-              </span>
-              <span>Sub-Total: £ ${totalCartValueItemB.toFixed(2)}</span>
-            </div>        `;
+            </div>
+            <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
+              item.id
+            })"><i class="fa-solid fa-minus"></i></button>
+             ${item.numberOfUnits} 
+            <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
+              item.id
+            })"><i class="fa-solid fa-plus"></i></button>
+            </span>
+            <span>Sub-Total: £ ${totalCartValueItemB.toFixed(2)}</span>
+            <span><i class="fa-solid fa-trash-can deleteIcon" onClick="removeFromCart(${
+              item.id
+            })"></i></span>
+    </div>
+        `;
     } else if (item.id === 2) {
       const x = item.numberOfUnits;
       totalCartValueItemC = ~~(x / 5) * 0.8 + (x % 5) * 0.2;
 
       cartElement.innerHTML += `
-            <div class="cartItemRow">
-              <div class="cartItemCard">
-                <div class="cartItemDescription">
-                  <div onClick="removeFromCart(${item.id})"> 
-                    <img src="/img/${item.img}"/>
-                    <h6>${item.name}</h>
-                  </div>
+    <div class="cartItemRow">
+            <div class="cartItemCard"> 
+                <div class="cartItemDescription"> 
+                    <img src="/img/${item.img}" />
+                    <h6>Item: ${item.name}</h6>
                 </div>
-              </div>
-              <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
-                item.id
-              })"><i class="fa-solid fa-minus"></i></button>
-              ${item.numberOfUnits} 
-              <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
-                item.id
-              })"><i class="fa-solid fa-plus"></i></button>
-              </span>
-              <span>Sub-Total: £ ${totalCartValueItemC.toFixed(2)}</span>
-            </div>        `;
+            </div>
+            <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
+              item.id
+            })"><i class="fa-solid fa-minus"></i></button>
+             ${item.numberOfUnits} 
+            <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
+              item.id
+            })"><i class="fa-solid fa-plus"></i></button>
+            </span>
+            <span>Sub-Total: £ ${totalCartValueItemC.toFixed(2)}</span>
+            <span><i class="fa-solid fa-trash-can deleteIcon" onClick="removeFromCart(${
+              item.id
+            })"></i></span>
+    </div>
+        `;
     } else if (item.id === 3) {
       const x = item.numberOfUnits;
       totalCartValueItemD = ~~(x / 5) * 0.5 + (x % 5) * 0.15;
 
       cartElement.innerHTML += `
-            <div class="cartItemRow">
-              <div class="cartItemCard">
-                <div class="cartItemDescription">
-                  <div onClick="removeFromCart(${item.id})"> 
-                    <img src="/img/${item.img}"/>
-                    <h6>${item.name}</h>
-                  </div>
+    <div class="cartItemRow">
+            <div class="cartItemCard"> 
+                <div class="cartItemDescription"> 
+                    <img src="/img/${item.img}" />
+                    <h6>Item: ${item.name}</h6>
                 </div>
-              </div>
-              <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
-                item.id
-              })"><i class="fa-solid fa-minus"></i></button>
-              ${item.numberOfUnits} 
-              <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
-                item.id
-              })"><i class="fa-solid fa-plus"></i></button>
-              </span>
-              <span>Sub-Total: £ ${totalCartValueItemD.toFixed(2)}</span>
-            </div>        `;
+            </div>
+            <span><button class="btn btn-danger" onClick="changeNumberOfUnits('minus', ${
+              item.id
+            })"><i class="fa-solid fa-minus"></i></button>
+             ${item.numberOfUnits} 
+            <button class="btn btn-success" onClick="changeNumberOfUnits('plus', ${
+              item.id
+            })"><i class="fa-solid fa-plus"></i></button>
+            </span>
+            <span>Sub-Total: £ ${totalCartValueItemD.toFixed(2)}</span>
+            <span><i class="fa-solid fa-trash-can deleteIcon" onClick="removeFromCart(${
+              item.id
+            })"></i></span>
+    </div>
+        `;
     }
   });
 }
@@ -196,5 +228,5 @@ function renderSubtotal() {
   subTotalElement.innerHTML = `
   Cart Total (${totalItem} items): £ ${totalCartValue.toFixed(2)}
   `;
-  //totalItemCart.innerHTML = totalItem;
+  totalItemCart.innerHTML = totalItem;
 }

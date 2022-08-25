@@ -46,10 +46,20 @@ body {
   .cartHeader {
     p {
       text-align: right;
+      position: relative;
 
       span {
+        background-color: $primaryColor;
         padding: 2px 5px;
+        border-radius: 50%;
+        font-size: 10px;
         margin-left: 5px;
+        color: #fff;
+        position: absolute;
+        right: -4px;
+        z-index: 999;
+        top: -10px;
+        border: 1px solid #fff;
       }
       i {
         font-size: 30px;
@@ -88,13 +98,13 @@ body {
       justify-content: space-between;
       margin-bottom: 10px;
       padding: 10px;
-      border: 1px solid $secondaryColor;
-      border-radius: 10px;
+      border-bottom: 1px solid $secondaryColor;
       .cartItemCard {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+
         .cartItemDescription {
           display: flex;
           flex-direction: column;
@@ -102,7 +112,16 @@ body {
           align-items: center;
         }
       }
-
+      .deleteIcon {
+        color: rgb(194, 25, 25);
+        font-size: 18px;
+        margin-right: 10px;
+        transition: 0.3s all ease;
+        &:hover {
+          transform: scale(120%);
+          transition: 0.3s all ease;
+        }
+      }
       img {
         width: 35px;
         height: 35px;
