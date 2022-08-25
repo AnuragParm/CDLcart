@@ -1,0 +1,129 @@
+// color variables
+$primaryColor: #198754;
+$secondaryColor: rgb(190, 174, 174);
+$cartbackground: rgba(240, 237, 237, 0.776);
+
+body {
+  margin-top: 2%;
+}
+// Product Section
+.productWrapper {
+  background-color: rgb(201, 171, 229);
+  .productRender {
+    padding-bottom: 2%;
+
+    .product {
+      border: 2px solid $secondaryColor;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 5%;
+      .productDetail {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      span:first-of-type {
+        color: rgb(192, 2, 2);
+        font-weight: 700;
+      }
+    }
+  }
+}
+//Cart Section
+.cartWrapper {
+  .cart {
+    padding: 20px 30px;
+    height: 85vh;
+    background-color: $cartbackground;
+  }
+  @media (max-width: 600px) {
+    .cart {
+      height: 45vh;
+      overflow-y: scroll;
+    }
+  }
+
+  .cartHeader {
+    p {
+      text-align: right;
+
+      span {
+        padding: 2px 5px;
+        margin-left: 5px;
+      }
+      i {
+        font-size: 30px;
+        color: #beaeae;
+      }
+    }
+  }
+  .cartItems {
+    height: 100%;
+    .emptyCartView {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        font-size: 20px;
+      }
+    }
+    .cartItemRow {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid $secondaryColor;
+      border-radius: 10px;
+      .cartItemCard {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        .cartItemDescription {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+
+      img {
+        width: 35px;
+        height: 35px;
+      }
+
+      h6 {
+        margin-top: 5px;
+        font-size: 10px;
+      }
+
+      .btn {
+        font-size: 8px;
+        padding: 0 2px;
+      }
+      span {
+        font-size: 12px;
+        padding-top: 15px;
+      }
+    }
+  }
+  .cartFooter {
+    .subTotal {
+      text-align: center;
+      background-color: $cartbackground;
+      font-weight: 700;
+      padding-bottom: 5%;
+    }
+    .checkout {
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+}
