@@ -56,6 +56,17 @@ body {
         color: #beaeae;
       }
     }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: flex-start;
+
+      li {
+        flex: 1;
+        padding-left: 12px;
+      }
+    }
   }
   .cartItems {
     height: 100%;
@@ -84,7 +95,6 @@ body {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-
         .cartItemDescription {
           display: flex;
           flex-direction: column;
